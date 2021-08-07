@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>Tomato Timer</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+<link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css'>
+<link rel="stylesheet" href="./stylesheet.css">
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<div class="container">
+  <div id="app">
+    <div class="timer">
+      <span class="minute">{{ minutes }}</span>
+      <span>:</span>
+      <span class="seconds">{{ seconds }}</span>
+    </div>
+    <div class="controls">
+      <div class="start" v-if="!timer" @click="startTimer">
+        <button type="button" class="btn one">Start</button>
+      </div>
+      <div class="pause"  v-if="timer" @click="stopTimer">
+        <button type="button" class="btn two">Stop</button>
+      </div>
+      <div class="stop" v-if="resetButton" @click="resetTimer">
+        <button type="button" class="btn third">Reset</button>
+      </div>
+      <!--<div class="edit" v-if="!timer" @click="editTimer">
+        <button type="button" class="btn four">Edit</button>
+      </div>-->
+    </div>
+    <div class="input">
+      <transition name="fade">
+        <input type="text" v-if="edit" v-model="userTime">
+      </transition>
+    </div>
+  </div>
+</div>
+<!-- partial -->
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/vue/2.5.13/vue.min.js'></script>
+<script src='https://unpkg.com/feather-icons/dist/feather.min.js'></script><script  src="./main.js"></script>
+
+</body>
+</html>
